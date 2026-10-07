@@ -1,0 +1,246 @@
+{
+  "nhom_1_cpi": {
+    "hang_an_va_dich_vu_an_uong": [
+      "lương thực",
+      "thực phẩm",
+      "giá gạo",
+      "giá thịt lợn",
+      "thịt gia cầm",
+      "rau tươi, khô và chế biến",
+      "quả tươi, chế biến",
+      "trứng các loại",
+      "thủy sản tươi sống",
+      "thủy sản chế biến",
+      "mỡ ăn",
+      "bột mì",
+      "ngũ cốc",
+      "bún, bánh phở, bánh đa",
+      "ăn uống ngoài gia đình"
+    ],
+    "do_uong_va_thuoc_la": [
+      "đồ uống",
+      "thuốc lá",
+      "thuốc hút",
+      "bia lon",
+      "bia các loại",
+      "rượu mạnh",
+      "rượu vang",
+      "rượu các loại",
+      "nước quả ép",
+      "nước khoáng",
+      "nước uống tăng lực"
+    ],
+    "may_mac_mu_non_giay_dep": [
+      "quần áo may sẵn",
+      "giày dép",
+      "dịch vụ may mặc",
+      "dịch vụ giày dép",
+      "vải các loại",
+      "mũ nón",
+      "găng tay",
+      "cà vạt",
+      "bít tất"
+    ],
+    "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung": [
+      "giá thuê nhà",
+      "nhà ở thuê",
+      "giá điện sinh hoạt",
+      "giá nước sinh hoạt",
+      "giá gas",
+      "giá dầu hỏa",
+      "vật liệu bảo dưỡng nhà ở",
+      "xi măng",
+      "thép",
+      "cát",
+      "đá",
+      "gạch",
+      "dịch vụ sửa chữa nhà ở",
+      "dịch vụ vệ sinh môi trường"
+    ],
+    "thiet_bi_va_do_dung_gia_dinh": [
+      "thiết bị và đồ dùng gia đình",
+      "bình nước nóng nhà tắm",
+      "máy xay sinh tố",
+      "máy điều hòa nhiệt độ",
+      "hàng thủy tinh, sành, sứ",
+      "xà phòng và chất tẩy rửa",
+      "giường tủ bàn ghế",
+      "sửa chữa thiết bị trong gia đình",
+      "dịch vụ trong gia đình"
+    ],
+    "thuoc_va_dich_vu_y_te": [
+      "giá thuốc",
+      "thuốc các loại",
+      "giá dịch vụ y tế",
+      "dịch vụ khám chữa bệnh",
+      "thiết bị y tế",
+      "nguyên liệu dược"
+    ],
+    "giao_thong": [
+      "giá xăng",
+      "giá xăng dầu",
+      "dầu diezen",
+      "dầu diesel",
+      "vé máy bay",
+      "vận tải đường hàng không",
+      "vận tải đường sắt",
+      "vận tải hành khách bằng đường thủy",
+      "dịch vụ giao thông công cộng",
+      "xe ô tô đã qua sử dụng",
+      "phụ tùng ô tô",
+      "bảo dưỡng phương tiện đi lại",
+      "dịch vụ rửa xe, bơm xe",
+      "học bằng lái xe"
+    ],
+    "buu_chinh_vien_thong_va_thong_tin_truyen_thong": [
+      "bưu chính, viễn thông",
+      "thông tin và truyền thông",
+      "dịch vụ viễn thông",
+      "điện thoại di động thông minh",
+      "máy tính bảng",
+      "điện thoại cố định",
+      "phụ kiện máy điện thoại di động thông minh",
+      "dịch vụ bưu chính và chuyển phát"
+    ],
+    "giao_duc": [
+      "học phí",
+      "giá dịch vụ giáo dục",
+      "học phí dạy thêm",
+      "sách giáo khoa",
+      "bút viết các loại",
+      "văn phòng phẩm",
+      "đồ dùng học tập",
+      "giáo dục và đào tạo"
+    ],
+    "van_hoa_giai_tri_va_du_lich": [
+      "du lịch trọn gói",
+      "tua du lịch trọn gói",
+      "du lịch trong nước",
+      "du lịch ngoài nước",
+      "khách sạn, nhà khách",
+      "dịch vụ lưu trú",
+      "dịch vụ văn hóa",
+      "dịch vụ thể thao",
+      "thiết bị thể dục thể thao",
+      "đồ chơi trẻ em",
+      "cây, hoa cảnh",
+      "sách, báo, tạp chí"
+    ],
+    "hang_hoa_va_dich_vu_khac": [
+      "đồ trang sức",
+      "đồ dùng cá nhân",
+      "dịch vụ chăm sóc cá nhân",
+      "dịch vụ chăm sóc người già",
+      "túi xách",
+      "va ly",
+      "dịch vụ về hiếu, hỷ"
+    ]
+  },
+  "nhom_2_tac_nhan": {
+    "tien_te_lai_suat_ty_gia": [
+      "tỷ giá",
+      "lãi suất",
+      "lãi suất cho vay",
+      "lãi suất điều hành",
+      "chính sách tiền tệ",
+      "chính sách tiền tệ thắt chặt",
+      "chính sách tiền tệ nới lỏng",
+      "thị trường ngoại hối",
+      "giá đô la Mỹ"
+    ],
+    "thue_va_dieu_hanh_kinh_te": [
+      "thuế giá trị gia tăng",
+      "thuế bảo vệ môi trường",
+      "chính sách thuế quan",
+      "chính sách tài khóa",
+      "đầu tư công",
+      "gói tín dụng",
+      "điều hành giá"
+    ],
+    "nang_luong_va_nguyen_lieu": [
+      "giá dầu",
+      "dầu thô",
+      "giá năng lượng",
+      "giá nhiên liệu thế giới",
+      "giá nguyên liệu"
+    ],
+    "chi_phi_san_xuat_va_luu_thong": [
+      "chi phí đầu vào",
+      "chi phí sản xuất",
+      "chi phí nhân công",
+      "chi phí vận chuyển",
+      "chi phí logistics",
+      "chi phí nhập khẩu",
+      "chi phí bảo hiểm"
+    ],
+    "cung_cau_va_suc_mua": [
+      "nguồn cung",
+      "nhu cầu tiêu dùng",
+      "tổng cầu",
+      "sức mua",
+      "thiếu hụt nguồn cung",
+      "nguồn cung khan hiếm",
+      "nguồn cung dồi dào"
+    ],
+    "chuoi_cung_ung_va_thuong_mai": [
+      "chuỗi cung ứng",
+      "đứt gãy chuỗi cung ứng",
+      "gián đoạn chuỗi cung ứng",
+      "tích trữ hàng hóa",
+      "căng thẳng thương mại",
+      "bảo hộ thương mại",
+      "kiểm soát xuất nhập khẩu"
+    ],
+    "xung_dot_thoi_tiet_dich_benh": [
+      "xung đột quân sự",
+      "căng thẳng địa chính trị",
+      "thiên tai",
+      "biến đổi khí hậu",
+      "thời tiết bất lợi",
+      "dịch bệnh"
+    ],
+    "nhan_dien_chu_de_cpi_va_lam_phat": [
+      "CPI",
+      "chỉ số giá tiêu dùng",
+      "lạm phát",
+      "lạm phát cơ bản",
+      "kỳ vọng lạm phát",
+      "áp lực lạm phát"
+    ]
+  },
+  "nhom_3_bien_dong": {
+    "tang": {
+      "gia_va_chi_so": [
+        "tăng",
+        "tăng giá",
+        "tăng mạnh",
+        "tăng cao",
+        "tăng nhẹ",
+        "tăng trở lại",
+        "điều chỉnh tăng",
+        "đà tăng",
+        "xu hướng tăng",
+        "lập đỉnh mới"
+      ],
+      "tac_nhan_va_boi_canh": [
+        "gia tăng",
+        "leo thang"
+      ]
+    },
+    "giam": {
+      "gia_va_chi_so": [
+        "giảm",
+        "giảm giá",
+        "giảm mạnh",
+        "xu hướng giảm",
+        "hạ nhiệt"
+      ],
+      "tac_nhan_va_boi_canh": [
+        "giảm nhẹ",
+        "cắt giảm",
+        "suy giảm",
+        "suy yếu"
+      ]
+    }
+  }
+}

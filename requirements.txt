@@ -1,0 +1,3 @@
+# Gensim version recorded in the completed expansion run.
+# NumPy and SciPy are installed as dependencies of Gensim.
+gensim==4.4.0

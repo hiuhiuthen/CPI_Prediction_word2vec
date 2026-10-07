@@ -1,0 +1,2624 @@
+{
+  "schema_version": "2.0",
+  "author": "assistant_curated",
+  "human_review_status": "not_claimed",
+  "notes": [
+    "Giữ nguyên JSON bước 1. Bảng này chỉ là cấu hình truy vấn.",
+    "Các alias/truy vấn mới do trợ lý thiết kế, không phải từ được trích nguyên văn từ 7 thông cáo.",
+    "Mọi fallback chỉ dùng nếu khóa có trong model. Không dùng vector trung bình.",
+    "Các relation broader_topic/related_topic cần kiểm tra kỹ: đây không phải tương đương nghĩa.",
+    "Chưa kiểm tra độ phủ với file vector thực tế của người dùng."
+  ],
+  "candidate_stopwords": [
+    "và",
+    "cũng",
+    "các",
+    "những",
+    "một",
+    "một số",
+    "có",
+    "có thể",
+    "này",
+    "đó",
+    "đã",
+    "được",
+    "cho",
+    "của",
+    "ở",
+    "trong",
+    "ngoài",
+    "đến",
+    "tới",
+    "khi",
+    "thì",
+    "mà",
+    "như",
+    "bằng",
+    "cả",
+    "khác",
+    "hơn",
+    "nhiều",
+    "nó",
+    "họ",
+    "ta",
+    "mình",
+    "riêng",
+    "ngay",
+    "với",
+    "là",
+    "để",
+    "từ",
+    "do",
+    "vì",
+    "nên",
+    "nhưng",
+    "hoặc",
+    "hay",
+    "vẫn",
+    "sẽ",
+    "đang",
+    "rất",
+    "nhất",
+    "mỗi",
+    "nào",
+    "ai",
+    "gì",
+    "đây",
+    "kia",
+    "ấy",
+    "nữa",
+    "lại",
+    "thế",
+    "vậy",
+    "chỉ",
+    "còn",
+    "đều",
+    "phải",
+    "cần",
+    "muốn",
+    "chúng",
+    "chúng ta",
+    "tôi",
+    "anh",
+    "chị",
+    "ông",
+    "bà",
+    "bạn",
+    "v.v",
+    "sử dụng",
+    "bao gồm"
+  ],
+  "entries": [
+    {
+      "seed": "lương thực",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "thực phẩm",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá gạo",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "gạo"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "giá thịt lợn",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thịt lợn",
+            "thịt heo"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "thịt gia cầm",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "gia cầm"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "rau tươi, khô và chế biến",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "rau"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "quả tươi, chế biến",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "hoa quả",
+            "trái cây"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "trứng các loại",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "trứng"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "thủy sản tươi sống",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thủy sản"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "thủy sản chế biến",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thủy sản"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "mỡ ăn",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "mỡ thực phẩm"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "bột mì",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bột mỳ"
+          ],
+          "relation": "spelling_variant"
+        }
+      ],
+      "note": "Thử biến thể cách viết; không sửa từ nguyên văn trong bước 1."
+    },
+    {
+      "seed": "ngũ cốc",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "bún, bánh phở, bánh đa",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bún"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "bánh phở"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "bánh đa"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "ăn uống ngoài gia đình",
+      "group": [
+        "nhom_1_cpi",
+        "hang_an_va_dich_vu_an_uong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nhà hàng"
+          ],
+          "relation": "related_topic"
+        },
+        {
+          "alternatives": [
+            "quán ăn"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "đồ uống",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thức uống"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "thuốc lá",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "thuốc hút",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thuốc lá"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "bia lon",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "bia các loại",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bia"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "rượu mạnh",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "rượu vang",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "rượu các loại",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "rượu"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "nước quả ép",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nước ép trái cây",
+            "nước ép hoa quả",
+            "nước ép"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "nước khoáng",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "nước uống tăng lực",
+      "group": [
+        "nhom_1_cpi",
+        "do_uong_va_thuoc_la"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nước tăng lực"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "quần áo may sẵn",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "quần áo"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "giày dép",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "dịch vụ may mặc",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "may mặc"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "dịch vụ giày dép",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "giày dép"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "vải các loại",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "vải"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "mũ nón",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "găng tay",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "cà vạt",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "bít tất",
+      "group": [
+        "nhom_1_cpi",
+        "may_mac_mu_non_giay_dep"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá thuê nhà",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thuê nhà"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "nhà ở thuê",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá điện sinh hoạt",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "điện sinh hoạt"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "giá nước sinh hoạt",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nước sinh hoạt"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "giá gas",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "gas"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "giá dầu hỏa",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dầu hỏa",
+            "dầu hoả"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "vật liệu bảo dưỡng nhà ở",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "vật liệu xây dựng"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "xi măng",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "thép",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "cát",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "đá",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "gạch",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "dịch vụ sửa chữa nhà ở",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "sửa chữa nhà ở",
+            "sửa nhà"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "dịch vụ vệ sinh môi trường",
+      "group": [
+        "nhom_1_cpi",
+        "nha_o_dien_nuoc_chat_dot_va_vat_lieu_xay_dung"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "vệ sinh môi trường"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "thiết bị và đồ dùng gia đình",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "đồ gia dụng",
+            "gia dụng"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "bình nước nóng nhà tắm",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bình nước nóng",
+            "bình nóng lạnh"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "máy xay sinh tố",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "máy điều hòa nhiệt độ",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "máy điều hòa",
+            "máy điều hoà",
+            "máy lạnh"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "hàng thủy tinh, sành, sứ",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thủy tinh"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "sành"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "sứ"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "xà phòng và chất tẩy rửa",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "xà phòng"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "chất tẩy rửa"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "giường tủ bàn ghế",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "giường"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "tủ"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "bàn ghế"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "sửa chữa thiết bị trong gia đình",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "dịch vụ trong gia đình",
+      "group": [
+        "nhom_1_cpi",
+        "thiet_bi_va_do_dung_gia_dinh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá thuốc",
+      "group": [
+        "nhom_1_cpi",
+        "thuoc_va_dich_vu_y_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thuốc"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "thuốc các loại",
+      "group": [
+        "nhom_1_cpi",
+        "thuoc_va_dich_vu_y_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thuốc"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "giá dịch vụ y tế",
+      "group": [
+        "nhom_1_cpi",
+        "thuoc_va_dich_vu_y_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dịch vụ y tế"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "dịch vụ khám chữa bệnh",
+      "group": [
+        "nhom_1_cpi",
+        "thuoc_va_dich_vu_y_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "khám chữa bệnh"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "thiết bị y tế",
+      "group": [
+        "nhom_1_cpi",
+        "thuoc_va_dich_vu_y_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "nguyên liệu dược",
+      "group": [
+        "nhom_1_cpi",
+        "thuoc_va_dich_vu_y_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dược liệu"
+          ],
+          "relation": "related_topic"
+        },
+        {
+          "alternatives": [
+            "dược phẩm"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "giá xăng",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "xăng"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "giá xăng dầu",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "xăng dầu"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "dầu diezen",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dầu diesel",
+            "dầu điêzen"
+          ],
+          "relation": "spelling_variant"
+        }
+      ],
+      "note": "Thử biến thể cách viết; không sửa từ nguyên văn trong bước 1."
+    },
+    {
+      "seed": "dầu diesel",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "vé máy bay",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "vé hàng không"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "vận tải đường hàng không",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "hàng không",
+            "đường hàng không"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "vận tải đường sắt",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "đường sắt"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "vận tải hành khách bằng đường thủy",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "đường thủy",
+            "đường thuỷ"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "dịch vụ giao thông công cộng",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "giao thông công cộng"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "xe ô tô đã qua sử dụng",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "ô tô cũ",
+            "xe cũ"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "phụ tùng ô tô",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "phụ tùng"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "bảo dưỡng phương tiện đi lại",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bảo dưỡng ô tô",
+            "bảo dưỡng xe"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "dịch vụ rửa xe, bơm xe",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "rửa xe"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "bơm xe"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "học bằng lái xe",
+      "group": [
+        "nhom_1_cpi",
+        "giao_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "học lái xe",
+            "đào tạo lái xe"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "bưu chính, viễn thông",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bưu chính"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "viễn thông"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "thông tin và truyền thông",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "viễn thông"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "dịch vụ viễn thông",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "viễn thông"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "điện thoại di động thông minh",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "điện thoại thông minh",
+            "smartphone"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "máy tính bảng",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "tablet"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "điện thoại cố định",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "phụ kiện máy điện thoại di động thông minh",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "phụ kiện điện thoại"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "dịch vụ bưu chính và chuyển phát",
+      "group": [
+        "nhom_1_cpi",
+        "buu_chinh_vien_thong_va_thong_tin_truyen_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bưu chính"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "chuyển phát"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "học phí",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá dịch vụ giáo dục",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dịch vụ giáo dục"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "học phí dạy thêm",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "học phí"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "sách giáo khoa",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "bút viết các loại",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bút viết",
+            "bút"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "văn phòng phẩm",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "đồ dùng học tập",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "sách vở"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "giáo dục và đào tạo",
+      "group": [
+        "nhom_1_cpi",
+        "giao_duc"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "giáo dục"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "đào tạo"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "du lịch trọn gói",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "tour"
+          ],
+          "relation": "related_topic"
+        },
+        {
+          "alternatives": [
+            "lữ hành"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "tua du lịch trọn gói",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "tour"
+          ],
+          "relation": "related_topic"
+        },
+        {
+          "alternatives": [
+            "lữ hành"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "du lịch trong nước",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "du lịch nội địa"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "du lịch ngoài nước",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "du lịch nước ngoài"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "khách sạn, nhà khách",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "khách sạn"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "nhà khách"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "dịch vụ lưu trú",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "lưu trú"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "dịch vụ văn hóa",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "dịch vụ thể thao",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thể thao"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "thiết bị thể dục thể thao",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dụng cụ thể thao"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "đồ chơi trẻ em",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "đồ chơi"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "cây, hoa cảnh",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "cây cảnh"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "hoa cảnh"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "sách, báo, tạp chí",
+      "group": [
+        "nhom_1_cpi",
+        "van_hoa_giai_tri_va_du_lich"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "sách"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "báo"
+          ],
+          "relation": "listed_item"
+        },
+        {
+          "alternatives": [
+            "tạp chí"
+          ],
+          "relation": "listed_item"
+        }
+      ],
+      "note": "Tách các mặt hàng/chủ đề thành truy vấn độc lập, không trung bình vector."
+    },
+    {
+      "seed": "đồ trang sức",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "trang sức",
+            "nữ trang"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "đồ dùng cá nhân",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "vật dụng cá nhân"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "dịch vụ chăm sóc cá nhân",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "chăm sóc cá nhân"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "dịch vụ chăm sóc người già",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "chăm sóc người già"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "túi xách",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "va ly",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "vali",
+            "va li",
+            "va-li"
+          ],
+          "relation": "spelling_variant"
+        }
+      ],
+      "note": "Thử biến thể cách viết; không sửa từ nguyên văn trong bước 1."
+    },
+    {
+      "seed": "dịch vụ về hiếu, hỷ",
+      "group": [
+        "nhom_1_cpi",
+        "hang_hoa_va_dich_vu_khac"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "tang lễ"
+          ],
+          "relation": "related_topic"
+        },
+        {
+          "alternatives": [
+            "cưới hỏi"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "tỷ giá",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "lãi suất",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "lãi suất cho vay",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "lãi suất điều hành",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chính sách tiền tệ",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chính sách tiền tệ thắt chặt",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chính sách tiền tệ nới lỏng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "thị trường ngoại hối",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "ngoại hối"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "giá đô la Mỹ",
+      "group": [
+        "nhom_2_tac_nhan",
+        "tien_te_lai_suat_ty_gia"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "đô la Mỹ",
+            "USD"
+          ],
+          "relation": "currency_head"
+        }
+      ],
+      "note": "Truy đơn vị tiền tệ; ứng viên cần ngữ cảnh tỷ giá/giá cả."
+    },
+    {
+      "seed": "thuế giá trị gia tăng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "VAT",
+            "thuế VAT"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "thuế bảo vệ môi trường",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thuế môi trường"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "chính sách thuế quan",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thuế quan"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "chính sách tài khóa",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "đầu tư công",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "gói tín dụng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "tín dụng"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "điều hành giá",
+      "group": [
+        "nhom_2_tac_nhan",
+        "thue_va_dieu_hanh_kinh_te"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá dầu",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nang_luong_va_nguyen_lieu"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "dầu mỏ",
+            "dầu thô"
+          ],
+          "relation": "commodity_head"
+        }
+      ],
+      "note": "Bỏ phần mô tả giá/loại để truy mặt hàng; không tương đương điều kiện lọc bài về giá."
+    },
+    {
+      "seed": "dầu thô",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nang_luong_va_nguyen_lieu"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "giá năng lượng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nang_luong_va_nguyen_lieu"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "năng lượng"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "giá nhiên liệu thế giới",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nang_luong_va_nguyen_lieu"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nhiên liệu"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "giá nguyên liệu",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nang_luong_va_nguyen_lieu"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nguyên liệu"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "chi phí đầu vào",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nguyên vật liệu"
+          ],
+          "relation": "related_topic"
+        }
+      ],
+      "note": "Truy chủ đề liên quan do trợ lý đề xuất, không phải từ đồng nghĩa hay từ trích thêm từ nguồn."
+    },
+    {
+      "seed": "chi phí sản xuất",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chi phí nhân công",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "nhân công"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "chi phí vận chuyển",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chi phí logistics",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "logistics",
+            "logistic"
+          ],
+          "relation": "topic_head"
+        }
+      ],
+      "note": "Truy đơn vị chủ đề cốt lõi. Ứng viên phải được duyệt theo ngữ cảnh CPI."
+    },
+    {
+      "seed": "chi phí nhập khẩu",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chi phí bảo hiểm",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chi_phi_san_xuat_va_luu_thong"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "nguồn cung",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "nhu cầu tiêu dùng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "tổng cầu",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "sức mua",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "thiếu hụt nguồn cung",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "nguồn cung khan hiếm",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "nguồn cung dồi dào",
+      "group": [
+        "nhom_2_tac_nhan",
+        "cung_cau_va_suc_mua"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chuỗi cung ứng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "supply chain"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "đứt gãy chuỗi cung ứng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "gián đoạn chuỗi cung ứng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "tích trữ hàng hóa",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "căng thẳng thương mại",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "bảo hộ thương mại",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "bảo hộ mậu dịch"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "kiểm soát xuất nhập khẩu",
+      "group": [
+        "nhom_2_tac_nhan",
+        "chuoi_cung_ung_va_thuong_mai"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "xuất nhập khẩu",
+            "XNK"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "xung đột quân sự",
+      "group": [
+        "nhom_2_tac_nhan",
+        "xung_dot_thoi_tiet_dich_benh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "căng thẳng địa chính trị",
+      "group": [
+        "nhom_2_tac_nhan",
+        "xung_dot_thoi_tiet_dich_benh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "thiên tai",
+      "group": [
+        "nhom_2_tac_nhan",
+        "xung_dot_thoi_tiet_dich_benh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "biến đổi khí hậu",
+      "group": [
+        "nhom_2_tac_nhan",
+        "xung_dot_thoi_tiet_dich_benh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "BĐKH"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "thời tiết bất lợi",
+      "group": [
+        "nhom_2_tac_nhan",
+        "xung_dot_thoi_tiet_dich_benh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "thời tiết"
+          ],
+          "relation": "broader_topic"
+        }
+      ],
+      "note": "Truy vấn rộng hơn từ gốc; không tự động dùng độc lập để lọc bài."
+    },
+    {
+      "seed": "dịch bệnh",
+      "group": [
+        "nhom_2_tac_nhan",
+        "xung_dot_thoi_tiet_dich_benh"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "CPI",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nhan_dien_chu_de_cpi_va_lam_phat"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "chỉ số giá tiêu dùng",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nhan_dien_chu_de_cpi_va_lam_phat"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [
+        {
+          "alternatives": [
+            "CPI",
+            "Consumer Price Index"
+          ],
+          "relation": "equivalent_alias"
+        }
+      ],
+      "note": "Thử cách diễn đạt/viết tắt tương ứng; chỉ dùng khi có khóa nguyên cụm trong model."
+    },
+    {
+      "seed": "lạm phát",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nhan_dien_chu_de_cpi_va_lam_phat"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "lạm phát cơ bản",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nhan_dien_chu_de_cpi_va_lam_phat"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "kỳ vọng lạm phát",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nhan_dien_chu_de_cpi_va_lam_phat"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    },
+    {
+      "seed": "áp lực lạm phát",
+      "group": [
+        "nhom_2_tac_nhan",
+        "nhan_dien_chu_de_cpi_va_lam_phat"
+      ],
+      "try_original_first": true,
+      "fallback_queries": [],
+      "note": "Chỉ tra nguyên cụm. Không có khóa thì ghi riêng để xử lý; không tách hoặc trung bình vector."
+    }
+  ]
+}
