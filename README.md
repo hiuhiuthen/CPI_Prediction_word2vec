@@ -247,7 +247,7 @@ Quy trình thu thập gồm:
 4. Loại các bài trùng lặp, bản ghi thiếu nội dung và bài nằm ngoài thời gian nghiên cứu.
 5. Đối chiếu tiêu đề và nội dung với bộ từ vựng, lưu các từ khóa khớp cùng nhóm tương ứng để hỗ trợ sàng lọc mức độ liên quan đến CPI.
 6. Xuất dữ liệu dưới dạng JSONL, mỗi dòng là một bài báo, phục vụ các bước gán nhãn và trích xuất đặc trưng tiếp theo.
-Ở giai đoạn này, ưu tiên thu thập bằng từ khóa thuộc nhóm 1 và nhóm 2. Nhóm từ tăng/giảm được giữ lại để hỗ trợ bước phân tích chiều biến động sau khi có dữ liệu bài báo.
+Nhóm 3 gồm các từ chỉ chiều tăng và giảm, được giữ trong bộ từ vựng để phục vụ phân tích chiều biến động giá sau này. Trong thí nghiệm hiện tại, nhóm này chưa được dùng để gán nhãn chiều biến động giá hoặc tạo biến dự báo riêng cho SARIMAX.
 
 Thông tin trích dẫn do PhoW2V cung cấp:
 
